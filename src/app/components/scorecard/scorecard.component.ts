@@ -9,6 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class ScorecardComponent implements OnInit {
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
 }

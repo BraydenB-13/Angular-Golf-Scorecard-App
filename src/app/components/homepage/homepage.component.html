@@ -5,7 +5,7 @@
     <mat-label>Select A Course</mat-label>
       <mat-select [(ngModel)]="selectedCourse">
         <mat-option *ngFor="let Course of courses" [value]="Course.value">
-          {{Course.viewValue}}
+          {{Course.value}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -16,7 +16,7 @@
   <mat-label>Select A Tee</mat-label>
     <mat-select [(ngModel)]="selectedTee">
       <mat-option *ngFor="let Tee of tees" [value]="Tee.value">
-        {{Tee.viewValue}}
+        {{Tee.value}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -27,7 +27,7 @@
   <mat-label>Select A Player Count</mat-label>
     <mat-select [(ngModel)]="selectedPlayerCount">
       <mat-option *ngFor="let Player of players" [value]="Player.value">
-        {{Player.viewValue}}
+        {{Player.value}}
       </mat-option>
     </mat-select>
   </mat-form-field>
