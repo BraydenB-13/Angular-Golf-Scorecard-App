@@ -1,0 +1,38 @@
+<div class="body">
+  <div class="course">
+    <h3>Golf Couse:</h3>
+    <mat-form-field appearance="fill">
+    <mat-label>Select A Course</mat-label>
+      <mat-select [(ngModel)]="selectedCourse">
+        <mat-option *ngFor="let Course of courses" [value]="Course.value">
+          {{Course.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="tee">
+  <h3>Tee:</h3>
+  <mat-form-field appearance="fill">
+  <mat-label>Select A Tee</mat-label>
+    <mat-select [(ngModel)]="selectedTee">
+      <mat-option *ngFor="let Tee of tees" [value]="Tee.value">
+        {{Tee.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div class="player">
+  <h3>Player Count:</h3>
+  <mat-form-field appearance="fill">
+  <mat-label>Select A Player Count</mat-label>
+    <mat-select [(ngModel)]="selectedPlayerCount">
+      <mat-option *ngFor="let Player of players" [value]="Player.value">
+        {{Player.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <div class="button">
+  <button mat-raised-button color="primary" routerLink="/scorecard">Get Scorecard</button>
+  </div>
+</div>

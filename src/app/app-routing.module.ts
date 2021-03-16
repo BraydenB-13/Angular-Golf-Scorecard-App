@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ScorecardComponent } from './scorecard/scorecard.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { ScorecardComponent } from './components/scorecard/scorecard.component';
 
 const routes: Routes = [
   { path: 'scorecard', component: ScorecardComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomepageComponent },
   { path: '**', redirectTo: 'home'}
 ];
 

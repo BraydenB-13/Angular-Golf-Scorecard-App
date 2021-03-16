@@ -4,18 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { ScorecardComponent } from './scorecard/scorecard.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { ScorecardComponent } from './components/scorecard/scorecard.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ScorecardComponent
+    HomepageComponent,
+    ScorecardComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { ScorecardComponent } from './scorecard/scorecard.component';
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

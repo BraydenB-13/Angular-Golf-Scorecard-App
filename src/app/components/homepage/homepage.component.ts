@@ -1,27 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Course {
-  value: string;
-  viewValue: string;
-}
-
-interface Tee {
-  value: string;
-  viewValue: string;
-}
-
-interface Player {
-  value: string;
-  viewValue: string;
-}
+import { Course } from '../../interfaces/course';
+import { Player } from '../../interfaces/player';
+import { Tee } from '../../interfaces/tee';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
+  selector: 'app-homepage',
+  templateUrl: './homepage.component.html',
   styles: [
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomepageComponent implements OnInit {
 
   constructor() { }
 
@@ -46,9 +34,10 @@ export class HomeComponent implements OnInit {
   ];
 
   players: Player[] = [
-    {value: '1', viewValue: '1'},
-    {value: '2', viewValue: '2'},
-    {value: '3', viewValue: '3'},
-    {value: '4', viewValue: '4'}
+    {value: 1, viewValue: 1},
+    {value: 2, viewValue: 2},
+    {value: 3, viewValue: 3},
+    {value: 4, viewValue: 4}
   ];
 }
+
