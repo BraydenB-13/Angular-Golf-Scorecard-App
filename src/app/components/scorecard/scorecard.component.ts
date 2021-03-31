@@ -58,7 +58,6 @@ export class ScorecardComponent implements OnInit {
     for (let i = 0; i < 18; i++) {
       this.hcp[i] = data.data.holes[i].teeBoxes[teeId].hcp
     }
-    console.log(this.pars);
     this.course = course;
     this.tee = tee;
     this.players = players;
