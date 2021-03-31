@@ -2,7 +2,7 @@
 <table>
     <thead>
       <tr>
-        <td></td>
+        <td>{{course}}</td>
         <td>1</td>
         <td>2</td>
         <td>3</td>
@@ -30,52 +30,20 @@
     </thead>
     <tbody>
       <tr>
-        <td>Tee:</td>
+        <td>{{tee}} Tee</td>
+        <td *ngFor="let number of yards | slice:0:9; let i=index">{{number}}</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td *ngFor="let number of yards | slice:9:18; let i=index">{{number}}</td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
       <tr>
-        <td>Par:</td>
+        <td>Par</td>
+        <td *ngFor="let number of pars | slice:0:9; let i=index">{{number}}</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td *ngFor="let number of pars | slice:9:18; let i=index">{{number}}</td>
         <td></td>
         <td></td>
         <td></td>
@@ -240,7 +208,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
+      <tr *ngIf=" players >= '2' ">
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
@@ -399,7 +367,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
+      <tr *ngIf=" players >= '3' ">
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
@@ -558,7 +526,7 @@
         <td></td>
         <td></td>
       </tr>
-      <tr>
+      <tr *ngIf=" players >= '4' ">
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
@@ -719,25 +687,9 @@
       </tr>
       <tr>
         <td>Handicap</td>
+        <td *ngFor="let number of hcp| slice:0:9; let i=index">{{number}}</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td *ngFor="let number of hcp| slice:9:18; let i=index">{{number}}</td>
         <td></td>
         <td></td>
         <td></td>

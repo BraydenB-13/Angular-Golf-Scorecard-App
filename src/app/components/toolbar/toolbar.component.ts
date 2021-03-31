@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faFlag } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
+  faFlag = faFlag;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

@@ -12,6 +12,9 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ScorecardComponent } from './components/scorecard/scorecard.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FontAwesomeModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

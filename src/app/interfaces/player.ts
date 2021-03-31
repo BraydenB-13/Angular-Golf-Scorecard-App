@@ -1,3 +1,3 @@
 export interface Player {
-    value: number;
+    value: string;
 }
