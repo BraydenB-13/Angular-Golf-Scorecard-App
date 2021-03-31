@@ -3,25 +3,30 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-mat-toolbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .body {
-    min-height: 85vh;
+    background-color: #ffffff;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.table {
+    overflow-x: scroll;
+}
+
 td {
     border: 1px solid black;
+    text-align: center;
+    font-size: 15px;
 }
 
 table {
     border-collapse: collapse;
-    height: 85vh;
+    height: 90.1vh;
+}
+
+.button {
+    padding-top: 30px;
 }

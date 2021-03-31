@@ -3,7 +3,7 @@
     <h3>Golf Couse:</h3>
     <mat-form-field appearance="fill">
     <mat-label>Select A Course</mat-label>
-      <mat-select [(ngModel)]="selectedCourse">
+      <mat-select [(ngModel)]="selectedCourse" color="select">
         <mat-option *ngFor="let Course of courses" [value]="Course.value">
           {{Course.value}}
         </mat-option>
@@ -33,6 +33,6 @@
   </mat-form-field>
   </div>
   <div class="button">
-  <button mat-raised-button color="primary" routerLink="/scorecard">Get Scorecard</button>
+    <button mat-raised-button color="primary" routerLink="/scorecard">Get Scorecard</button>
   </div>
 </div>
