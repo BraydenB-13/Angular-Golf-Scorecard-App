@@ -259,11 +259,11 @@ export class ScorecardComponent implements OnInit {
     }
     if (definedCount == 18) {
       if (tot < 0) {
-        this.message = `Good Job ${name}, On to the PGA,`
+        this.message = `Good Job ${name}, On to the PGA!`
       } else if (tot == 0) {
-        this.message = `Well done ${name}, Right on target,`
+        this.message = `Well done ${name}, Right on target!`
       } else {
-        this.message = `Better luck next time ${name}`
+        this.message = `Better luck next time ${name}!`
       }
       this._snackBar.open(`${this.message}`, 'Close', {
         duration: 3000
