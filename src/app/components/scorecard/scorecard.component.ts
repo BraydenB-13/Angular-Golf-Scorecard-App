@@ -208,44 +208,52 @@ export class ScorecardComponent implements OnInit {
   getScores(holes, id) {
     var outTotal = 0;
     var inTotal = 0;
+    var outValue = 0;
+    var inValue = 0;
     var value = 0;
+    var value2 = 0;
     var definedCount = 0;
     for (let i = 0; i < 9; i++) {
       value = 0;
       if (holes[i] !== undefined) {
         value = holes[i] - Number(this.pars[i]);
+        value2 = holes[i];
         definedCount ++;
       }
       outTotal += value;
+      outValue += value2;
       value = 0;
+      value2 = 0;
       if (holes[i + 9] !== undefined) {
         value = holes[i + 9] - Number(this.pars[i + 9]);
+        value2 = holes[i + 9];
         definedCount ++;
       }
       inTotal += value;
+      inValue += value2;
     }
     if (id == 1) {
-      this.p1Out = outTotal;
-      this.p1In = inTotal;
-      this.p1Tot = this.p1Out + this.p1In;
+      this.p1Out = outValue;
+      this.p1In = inValue;
+      this.p1Tot = outTotal + inTotal;
       var name = this.p1name;
       var tot = this.p1Tot;
     } else if (id == 2) {
-      this.p2Out = outTotal;
-      this.p2In = inTotal;
-      this.p2Tot = this.p2Out + this.p2In;
+      this.p2Out = outValue;
+      this.p2In = inValue;
+      this.p2Tot = outTotal + inTotal;
       var name = this.p2name;
       var tot = this.p2Tot;
     } else if (id == 3) {
-      this.p3Out = outTotal;
-      this.p3In = inTotal;
-      this.p3Tot = this.p3Out + this.p3In;
+      this.p3Out = outValue;
+      this.p3In = inValue;
+      this.p3Tot = outTotal + inTotal;
       var name = this.p3name;
       var tot = this.p3Tot;
     } else {
-      this.p4Out = outTotal;
-      this.p4In = inTotal;
-      this.p4Tot = this.p4Out + this.p4In;
+      this.p4Out = outValue;
+      this.p4In = inValue;
+      this.p4Tot = outTotal + inTotal;
       var name = this.p4name;
       var tot = this.p4Tot;
     }
