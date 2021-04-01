@@ -1,10 +1,17 @@
-mat-toolbar {
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.example-spacer {
+    flex: .475 auto;
 }
 
 fa-icon {
+    font-size: 30px;
     padding-right: 10px;
 }
+
+span {
+    font-size: 30px;
+}
+
+mat-icon {
+    font-size: 35px;
+}
+  
