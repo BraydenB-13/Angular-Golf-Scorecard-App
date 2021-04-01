@@ -43,7 +43,11 @@ export class HomepageComponent implements OnInit {
   ];
 
   submit() {
-    if (this.selectedCourse, this.selectedTee, this.selectedPlayerCount) {
+    if (this.selectedCourse == 'Spanish Oaks' && this.selectedTee == 'Pro') {
+      this._snackBar.open('Spanish Oaks does not have a Pro tee', 'Close', {
+        duration: 3000
+      })
+    } else if (this.selectedCourse, this.selectedTee, this.selectedPlayerCount) {
       sessionStorage.setItem("course", this.selectedCourse);
       sessionStorage.setItem("tee", this.selectedTee);
       sessionStorage.setItem("players", this.selectedPlayerCount);
@@ -55,4 +59,3 @@ export class HomepageComponent implements OnInit {
     }
   }
 }
-

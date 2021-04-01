@@ -21,13 +21,6 @@ export class ScorecardComponent implements OnInit {
     var course = sessionStorage.getItem("course");
     var tee = sessionStorage.getItem("tee");
     var players = sessionStorage.getItem("players");
-    if (course == 'Thanksgiving Point') {
-      id = '11819'
-    } else if (course == 'Fox Hollow') {
-      id = '18300'
-    } else {
-      id = '19002'
-    }
     if (tee == 'Pro') {
       teeId = 0
     } else if (tee == 'Champion') {
@@ -36,6 +29,20 @@ export class ScorecardComponent implements OnInit {
       teeId = 2
     } else {
       teeId = 3
+    }
+    if (course == 'Thanksgiving Point') {
+      id = '11819'
+    } else if (course == 'Fox Hollow') {
+      id = '18300'
+    } else {
+      id = '19002'
+      if (tee == 'Champion') {
+        teeId = 0
+      } else if (tee == 'Mens') {
+        teeId = 1
+      } else {
+        teeId = 2
+      }
     }
     this.api.apiCall(id).subscribe((data)=>{
       this.setUpTable(data, course, tee, players, teeId);  
