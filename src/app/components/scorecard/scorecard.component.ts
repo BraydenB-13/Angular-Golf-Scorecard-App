@@ -36,13 +36,7 @@ export class ScorecardComponent implements OnInit {
       id = '18300'
     } else {
       id = '19002'
-      if (tee == 'Champion') {
-        teeId = 0
-      } else if (tee == 'Mens') {
-        teeId = 1
-      } else {
-        teeId = 2
-      }
+      teeId -= 1;
     }
     this.api.apiCall(id).subscribe((data)=>{
       this.setUpTable(data, course, tee, players, teeId);  
@@ -162,20 +156,15 @@ export class ScorecardComponent implements OnInit {
     this.yardsTot = 0;
     for (let i = 0; i < 18; i++) {
       this.pars[i] = data.data.holes[i].teeBoxes[teeId].par
-    }
-    for (let i = 0; i < 18; i++) {
       this.yards[i] = data.data.holes[i].teeBoxes[teeId].yards
-    }
-    for (let i = 0; i < 9; i++) {
-      this.yardsOut += Number(this.yards[i])
-    }
-    for (let i = 9; i < 18; i++) {
-      this.yardsIn += Number(this.yards[i])
+      this.hcp[i] = data.data.holes[i].teeBoxes[teeId].hcp
+      if (i < 9) {
+        this.yardsOut += Number(this.yards[i])
+      } else {
+        this.yardsIn += Number(this.yards[i])
+      }
     }
     this.yardsTot = this.yardsOut + this.yardsIn
-    for (let i = 0; i < 18; i++) {
-      this.hcp[i] = data.data.holes[i].teeBoxes[teeId].hcp
-    }
     this.course = course;
     this.tee = tee;
     this.players = players;

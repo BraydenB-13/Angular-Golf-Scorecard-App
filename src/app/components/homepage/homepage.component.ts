@@ -42,12 +42,24 @@ export class HomepageComponent implements OnInit {
     {value: '4'}
   ];
 
+  check() {
+    if (this.selectedCourse == 'Spanish Oaks') {
+      this.tees.splice(2, 1);
+    } else if (this.tees.length < 4){
+      this.tees.splice(2, 0, {value: 'Pro'});
+    }
+  }
+
+  check2() {
+    if (this.selectedTee == 'Pro') {
+      this.courses.splice(2, 1);
+    } else if (this.courses.length < 3) {
+      this.courses.splice(2, 0, {value: 'Spanish Oaks'});
+    }
+  }
+
   submit() {
-    if (this.selectedCourse == 'Spanish Oaks' && this.selectedTee == 'Pro') {
-      this._snackBar.open('Spanish Oaks does not have a Pro tee', 'Close', {
-        duration: 3000
-      })
-    } else if (this.selectedCourse, this.selectedTee, this.selectedPlayerCount) {
+    if (this.selectedCourse, this.selectedTee, this.selectedPlayerCount) {
       sessionStorage.setItem("course", this.selectedCourse);
       sessionStorage.setItem("tee", this.selectedTee);
       sessionStorage.setItem("players", this.selectedPlayerCount);

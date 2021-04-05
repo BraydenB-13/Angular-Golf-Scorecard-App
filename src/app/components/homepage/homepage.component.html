@@ -3,7 +3,7 @@
     <h3>Golf Couse:</h3>
     <mat-form-field appearance="fill">
     <mat-label>Select A Course</mat-label>
-      <mat-select [(ngModel)]="selectedCourse" color="select">
+      <mat-select [(ngModel)]="selectedCourse" (selectionChange)="check()">
         <mat-option *ngFor="let Course of courses" [value]="Course.value">
           {{Course.value}}
         </mat-option>
@@ -14,7 +14,7 @@
   <h3>Tee:</h3>
   <mat-form-field appearance="fill">
   <mat-label>Select A Tee</mat-label>
-    <mat-select [(ngModel)]="selectedTee">
+    <mat-select [(ngModel)]="selectedTee" (selectionChange)="check2()">
       <mat-option *ngFor="let Tee of tees" [value]="Tee.value">
         {{Tee.value}}
       </mat-option>
