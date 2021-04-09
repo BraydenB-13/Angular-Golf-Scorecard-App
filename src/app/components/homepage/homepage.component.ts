@@ -4,12 +4,12 @@ import { Player } from '../../interfaces/player';
 import { Tee } from '../../interfaces/tee';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { faFlag } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styles: [
-  ]
+  styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
 
@@ -18,6 +18,8 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  faFlag = faFlag;
+  
   selectedCourse: string;
   selectedTee: string;
   selectedPlayerCount: string;

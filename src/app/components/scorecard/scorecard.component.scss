@@ -1,0 +1,41 @@
+.table {
+    overflow-x: scroll;
+
+    td {
+        border: 1px solid black;
+        text-align: center;
+        font-size: 15px;
+    }
+    
+    table {
+        border-collapse: collapse;
+        height: 90.1vh;
+    }
+}
+
+mat-icon {
+    font-size: 30px;
+}
+
+.numbers {
+    display: flex;
+    font-size: 20px;
+    padding-right: 10px;
+    padding-left: 20vw;
+
+    .wind {
+        padding-right: 10px;
+    }
+}
+
+.title {
+    padding-left: 35vw;
+
+    .flag {
+        font-size: 30px;
+        padding-right: 10px;
+    }
+    .span {
+        font-size: 30px;
+    }
+}

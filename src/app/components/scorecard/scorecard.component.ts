@@ -4,12 +4,13 @@ import { Pars } from '../../interfaces/pars';
 import { Yards } from '../../interfaces/yards';
 import { Hcp } from '../../interfaces/hcp';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { faFlag } from '@fortawesome/free-solid-svg-icons';
+import { faWind } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-scorecard',
   templateUrl: './scorecard.component.html',
-  styles: [
-  ]
+  styleUrls: ['./scorecard.component.scss']
 })
 export class ScorecardComponent implements OnInit {
   
@@ -41,7 +42,14 @@ export class ScorecardComponent implements OnInit {
     this.api.apiCall(id).subscribe((data)=>{
       this.setUpTable(data, course, tee, players, teeId);  
     })
+
+    this.api.weatherCall(id).subscribe((data)=>{
+      this.getWeather(data);  
+    })
   }
+
+  faFlag = faFlag;
+  faWind = faWind;
 
   course: string;
   tee: string;
@@ -149,6 +157,22 @@ export class ScorecardComponent implements OnInit {
   p4Tot: number;
   p4Totals: Array<number>;
   p4Holes: Array<number>;
+
+  direction: string;
+  speed: string;
+  wind: string;
+
+  getWeather(data) {
+    this.direction = this.degToCompass(data.wind.deg)
+    this.speed = data.wind.speed;
+    this.wind = `${this.speed} mph ${this.direction}`
+  }
+
+  degToCompass(deg) {
+    var index = (Math.round(deg / 22.5)) % 16;
+    var directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    return directions[index];
+  }
 
   setUpTable(data, course, tee, players, teeId) {
     this.yardsOut = 0;

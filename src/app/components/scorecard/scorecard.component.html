@@ -1,3 +1,16 @@
+<mat-toolbar color="primary">
+	<button mat-icon-button class="example-icon home-icon" routerLink="home">
+		<mat-icon>home</mat-icon>
+    </button>
+	<div class="title">
+		<fa-icon class="flag" [icon]="faFlag"></fa-icon>
+		<span class="span">Golf Scorecard</span>
+    </div>
+	<div class="numbers">
+		<fa-icon class="wind" [icon]="faWind"></fa-icon>
+		<h3>{{wind}}</h3>
+	</div>
+</mat-toolbar>
 <div class="table">
 <table>
     <thead>
