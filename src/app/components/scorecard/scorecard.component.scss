@@ -20,22 +20,27 @@ mat-icon {
 .numbers {
     display: flex;
     font-size: 20px;
-    padding-right: 10px;
-    padding-left: 20vw;
-
-    .wind {
-        padding-right: 10px;
-    }
 }
 
-.title {
-    padding-left: 35vw;
+.flag {
+    font-size: 30px;
+    padding-right: 10px;
+}
 
-    .flag {
-        font-size: 30px;
-        padding-right: 10px;
-    }
-    .span {
-        font-size: 30px;
-    }
+.wind {
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.span {
+    font-size: 30px;
+}
+
+
+.example-spacer {
+    flex: .55 auto
+}
+
+.example-spacer2 {
+    flex: .4 auto
 }

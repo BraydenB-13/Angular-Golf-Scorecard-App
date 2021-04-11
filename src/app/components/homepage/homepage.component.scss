@@ -11,16 +11,17 @@
     padding-top: 30px;
 }
 
-.title {
-    padding-left: 35vw;
+.example-spacer {
+    flex: .475 auto;
+}
 
-    .flag {
-        font-size: 30px;
-        padding-right: 10px;
-    }
-    .span {
-        font-size: 30px;
-    }
+.flag {
+    font-size: 30px;
+    padding-right: 10px;
+}
+
+.span {
+    font-size: 30px;
 }
 
 mat-icon {
