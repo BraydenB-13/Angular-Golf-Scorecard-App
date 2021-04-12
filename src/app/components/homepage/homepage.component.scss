@@ -27,3 +27,15 @@
 mat-icon {
     font-size: 30px;
 }
+
+@media (max-width: 750px) {
+    mat-icon, .numbers, .example-spacer, .example-spacer2, .home-icon {
+        display: none;
+    }
+    mat-toolbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
+    }
+}

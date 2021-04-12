@@ -160,18 +160,10 @@ export class ScorecardComponent implements OnInit {
 
   direction: string;
   speed: string;
-  wind: string;
 
   getWeather(data) {
-    this.direction = this.degToCompass(data.wind.deg)
+    this.direction = data.wind.deg;
     this.speed = data.wind.speed;
-    this.wind = `${this.speed} mph ${this.direction}`
-  }
-
-  degToCompass(deg) {
-    var index = (Math.round(deg / 22.5)) % 16;
-    var directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
-    return directions[index];
   }
 
   setUpTable(data, course, tee, players, teeId) {
