@@ -10,14 +10,14 @@
     <span class="example-spacer2"></span>
 	<div class="numbers">
 		<fa-icon class="wind" [icon]="faWind"></fa-icon>
-		<h3>{{ speed | wind: direction }}</h3>
+		<h3>{{ info.speed | wind: info.direction }}</h3>
 	</div>
 </mat-toolbar>
 <div class="table">
 <table>
     <thead>
       <tr>
-        <td>{{course}}</td>
+        <td>{{info.course}}</td>
         <td>1</td>
         <td>2</td>
         <td>3</td>
@@ -43,12 +43,12 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{tee}} Tee<br>(yards)</td>
+        <td>{{info.tee}} Tee<br>(yards)</td>
         <td *ngFor="let number of yards | slice:0:9">{{number}}</td>
-        <td>{{yardsOut}}</td>
+        <td>{{info.yardsOut}}</td>
         <td *ngFor="let number of yards | slice:9:18">{{number}}</td>
-        <td>{{yardsIn}}</td>
-        <td>{{yardsTot}}</td>
+        <td>{{info.yardsIn}}</td>
+        <td>{{info.yardsTot}}</td>
       </tr>
       <tr>
         <td>Par</td>
@@ -63,7 +63,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player 1 Name</mat-label>
-                    <input style="text-align: center" matInput placeholder="Player 1 Name" [ngModel]="p1name | name" (ngModelChange)="p1name=$event" name="p1name">
+                    <input style="text-align: center" matInput placeholder="Player 1 Name" [(ngModel)]="p1Values.name" name="p1name">
                 </mat-form-field>
             </form>
         </td>
@@ -71,7 +71,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 1 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 1 Score" [(ngModel)]="p1h1" name="p1h1" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 1 Score" [(ngModel)]="p1Values.h1" name="h1" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -79,7 +79,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 2 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 2 Score" [(ngModel)]="p1h2" name="p1h2" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 2 Score" [(ngModel)]="p1Values.h2" name="h2" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -87,7 +87,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 3 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 3 Score" [(ngModel)]="p1h3" name="p1h3" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 3 Score" [(ngModel)]="p1Values.h3" name="h3" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -95,7 +95,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 4 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 4 Score" [(ngModel)]="p1h4" name="p1h4" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 4 Score" [(ngModel)]="p1Values.h4" name="h4" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -103,7 +103,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 5 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 5 Score" [(ngModel)]="p1h5" name="p1h5" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 5 Score" [(ngModel)]="p1Values.h5" name="h5" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -111,7 +111,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 6 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 6 Score" [(ngModel)]="p1h6" name="p1h6" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 6 Score" [(ngModel)]="p1Values.h6" name="h6" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -119,7 +119,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 7 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 7 Score" [(ngModel)]="p1h7" name="p1h7" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 7 Score" [(ngModel)]="p1Values.h7" name="h7" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -127,7 +127,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 8 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 8 Score" [(ngModel)]="p1h8" name="p1h8" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 8 Score" [(ngModel)]="p1Values.h8" name="h8" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -135,16 +135,16 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 9 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 9 Score" [(ngModel)]="p1h9" name="p1h9" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 9 Score" [(ngModel)]="p1Values.h9" name="h9" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
-        <td>{{p1Out}}</td>
+        <td>{{p1Values.Out}}</td>
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 10 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 10 Score" [(ngModel)]="p1h10" name="p1h10" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 10 Score" [(ngModel)]="p1Values.h10" name="h10" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -152,7 +152,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 11 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 11 Score" [(ngModel)]="p1h11" name="p1h11" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 11 Score" [(ngModel)]="p1Values.h11" name="h11" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -160,7 +160,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 12 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 12 Score" [(ngModel)]="p1h12" name="p1h12" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 12 Score" [(ngModel)]="p1Values.h12" name="h12" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -168,7 +168,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 13 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 13 Score" [(ngModel)]="p1h13" name="p1h13" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 13 Score" [(ngModel)]="p1Values.h13" name="h13" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -176,7 +176,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 14 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 14 Score" [(ngModel)]="p1h14" name="p1h14" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 14 Score" [(ngModel)]="p1Values.h14" name="h14" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -184,7 +184,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 15 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 15 Score" [(ngModel)]="p1h15" name="p1h15" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 15 Score" [(ngModel)]="p1Values.h15" name="h15" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -192,7 +192,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 16 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 16 Score" [(ngModel)]="p1h16" name="p1h16" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 16 Score" [(ngModel)]="p1Values.h16" name="h16" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -200,7 +200,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 17 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 17 Score" [(ngModel)]="p1h17" name="p1h17" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 17 Score" [(ngModel)]="p1Values.h17" name="h17" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
@@ -208,19 +208,19 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 18 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 18 Score" [(ngModel)]="p1h18" name="p1h18" (change)="getScores1()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 18 Score" [(ngModel)]="p1Values.h18" name="h18" (change)="getScores1()">
                 </mat-form-field>
             </form>
         </td>
-        <td>{{p1In}}</td>
-        <td>{{p1Tot}}</td>
+        <td>{{p1Values.In}}</td>
+        <td>{{p1Values.Tot}}</td>
       </tr>
-      <tr *ngIf=" players >= '2' ">
+      <tr *ngIf=" info.players >= '2' ">
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player 2 Name</mat-label>
-                    <input style="text-align: center" matInput placeholder="Player 2 Name" [ngModel]="p2name | name" (ngModelChange)="p2name=$event" name="p2name">
+                    <input style="text-align: center" matInput placeholder="Player 2 Name" [(ngModel)]="p2Values.name" name="p2name">
                 </mat-form-field>
             </form>
         </td>
@@ -228,7 +228,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 1 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 1 Score" [(ngModel)]="p2h1" name="p2h1" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 1 Score" [(ngModel)]="p2Values.h1" name="p2h1" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -236,7 +236,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 2 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 2 Score" [(ngModel)]="p2h2" name="p2h2" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 2 Score" [(ngModel)]="p2Values.h2" name="p2h2" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -244,7 +244,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 3 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 3 Score" [(ngModel)]="p2h3" name="p2h3" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 3 Score" [(ngModel)]="p2Values.h3" name="p2h3" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -252,7 +252,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 4 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 4 Score" [(ngModel)]="p2h4" name="p2h4" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 4 Score" [(ngModel)]="p2Values.h4" name="p2h4" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -260,7 +260,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 5 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 5 Score" [(ngModel)]="p2h5" name="p2h5" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 5 Score" [(ngModel)]="p2Values.h5" name="p2h5" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -268,7 +268,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 6 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 6 Score" [(ngModel)]="p2h6" name="p2h6" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 6 Score" [(ngModel)]="p2Values.h6" name="p2h6" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -276,7 +276,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 7 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 7 Score" [(ngModel)]="p2h7" name="p2h7" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 7 Score" [(ngModel)]="p2Values.h7" name="p2h7" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -284,7 +284,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 8 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 8 Score" [(ngModel)]="p2h8" name="p2h8" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 8 Score" [(ngModel)]="p2Values.h8" name="p2h8" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -292,16 +292,16 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 9 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 9 Score" [(ngModel)]="p2h9" name="p2h9" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 9 Score" [(ngModel)]="p2Values.h9" name="p2h9" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
-        <td>{{p2Out}}</td>
+        <td>{{p2Values.Out}}</td>
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 10 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 10 Score" [(ngModel)]="p2h10" name="p2h10" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 10 Score" [(ngModel)]="p2Values.h10" name="p2h10" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -309,7 +309,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 11 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 11 Score" [(ngModel)]="p2h11" name="p2h11" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 11 Score" [(ngModel)]="p2Values.h11" name="p2h11" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -317,7 +317,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 12 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 12 Score" [(ngModel)]="p2h12" name="p2h12" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 12 Score" [(ngModel)]="p2Values.h12" name="p2h12" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -325,7 +325,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 13 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 13 Score" [(ngModel)]="p2h13" name="p2h13" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 13 Score" [(ngModel)]="p2Values.h13" name="p2h13" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -333,7 +333,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 14 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 14 Score" [(ngModel)]="p2h14" name="p2h14" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 14 Score" [(ngModel)]="p2Values.h14" name="p2h14" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -341,7 +341,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 15 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 15 Score" [(ngModel)]="p2h15" name="p2h15" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 15 Score" [(ngModel)]="p2Values.h15" name="p2h15" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -349,7 +349,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 16 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 16 Score" [(ngModel)]="p2h16" name="p2h16" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 16 Score" [(ngModel)]="p2Values.h16" name="p2h16" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -357,7 +357,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 17 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 17 Score" [(ngModel)]="p2h17" name="p2h17" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 17 Score" [(ngModel)]="p2Values.h17" name="p2h17" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
@@ -365,19 +365,19 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 18 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 18 Score" [(ngModel)]="p2h18" name="p2h18" (change)="getScores2()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 18 Score" [(ngModel)]="p2Values.h18" name="p2h18" (change)="getScores2()">
                 </mat-form-field>
             </form>
         </td>
-        <td>{{p2In}}</td>
-        <td>{{p2Tot}}</td>
+        <td>{{p2Values.In}}</td>
+        <td>{{p2Values.Tot}}</td>
       </tr>
-      <tr *ngIf=" players >= '3' ">
+      <tr *ngIf=" info.players >= '3' ">
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player 3 Name</mat-label>
-                    <input style="text-align: center" matInput placeholder="Player 3 Name" [ngModel]="p3name | name" (ngModelChange)="p3name=$event" name="p3name">
+                    <input style="text-align: center" matInput placeholder="Player 3 Name" [(ngModel)]="p3Values.name" name="p3name">
                 </mat-form-field>
             </form>
         </td>
@@ -385,7 +385,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 1 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 1 Score" [(ngModel)]="p3h1" name="p3h1" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 1 Score" [(ngModel)]="p3Values.h1" name="p3h1" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -393,7 +393,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 2 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 2 Score" [(ngModel)]="p3h2" name="p3h2" (change)="getScores3()" >
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 2 Score" [(ngModel)]="p3Values.h2" name="p3h2" (change)="getScores3()" >
                 </mat-form-field>
             </form>
         </td>
@@ -401,7 +401,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 3 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 3 Score" [(ngModel)]="p3h3" name="p3h3" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 3 Score" [(ngModel)]="p3Values.h3" name="p3h3" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -409,7 +409,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 4 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 4 Score" [(ngModel)]="p3h4" name="p3h4" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 4 Score" [(ngModel)]="p3Values.h4" name="p3h4" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -417,7 +417,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 5 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 5 Score" [(ngModel)]="p3h5" name="p3h5" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 5 Score" [(ngModel)]="p3Values.h5" name="p3h5" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -425,7 +425,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 6 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 6 Score" [(ngModel)]="p3h6" name="p3h6" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 6 Score" [(ngModel)]="p3Values.h6" name="p3h6" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -433,7 +433,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 7 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 7 Score" [(ngModel)]="p3h7" name="p3h7" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 7 Score" [(ngModel)]="p3Values.h7" name="p3h7" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -441,7 +441,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 8 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 8 Score" [(ngModel)]="p3h8" name="p3h8" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 8 Score" [(ngModel)]="p3Values.h8" name="p3h8" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -449,16 +449,16 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 9 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 9 Score" [(ngModel)]="p3h9" name="p3h9" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 9 Score" [(ngModel)]="p3Values.h9" name="p3h9" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
-        <td>{{p3Out}}</td>
+        <td>{{p3Values.Out}}</td>
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 10 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 10 Score" [(ngModel)]="p3h10" name="p3h10" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 10 Score" [(ngModel)]="p3Values.h10" name="p3h10" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -466,7 +466,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 11 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 11 Score" [(ngModel)]="p3h11" name="p3h11" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 11 Score" [(ngModel)]="p3Values.h11" name="p3h11" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -474,7 +474,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 12 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 12 Score" [(ngModel)]="p3h12" name="p3h12" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 12 Score" [(ngModel)]="p3Values.h12" name="p3h12" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -482,7 +482,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 13 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 13 Score" [(ngModel)]="p3h13" name="p3h13" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 13 Score" [(ngModel)]="p3Values.h13" name="p3h13" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -490,7 +490,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 14 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 14 Score" [(ngModel)]="p3h14" name="p3h14" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 14 Score" [(ngModel)]="p3Values.h14" name="p3h14" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -498,7 +498,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 15 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 15 Score" [(ngModel)]="p3h15" name="p3h15" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 15 Score" [(ngModel)]="p3Values.h15" name="p3h15" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -506,7 +506,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 16 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 16 Score" [(ngModel)]="p3h16" name="p3h16" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 16 Score" [(ngModel)]="p3Values.h16" name="p3h16" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -514,7 +514,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 17 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 17 Score" [(ngModel)]="p3h17" name="p3h17" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 17 Score" [(ngModel)]="p3Values.h17" name="p3h17" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
@@ -522,19 +522,19 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 18 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 18 Score" [(ngModel)]="p3h18" name="p3h18" (change)="getScores3()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 18 Score" [(ngModel)]="p3Values.h18" name="p3h18" (change)="getScores3()">
                 </mat-form-field>
             </form>
         </td>
-        <td>{{p3In}}</td>
-        <td>{{p3Tot}}</td>
+        <td>{{p3Values.In}}</td>
+        <td>{{p3Values.Tot}}</td>
       </tr>
-      <tr *ngIf=" players >= '4' ">
+      <tr *ngIf=" info.players >= '4' ">
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player 4 Name</mat-label>
-                    <input style="text-align: center" matInput placeholder="Player 4 Name" [ngModel]="p4name | name" (ngModelChange)="p4name=$event" name="p4name">
+                    <input style="text-align: center" matInput placeholder="Player 4 Name" [(ngModel)]="p4Values.name" name="p4name">
                 </mat-form-field>
             </form>
         </td>
@@ -542,7 +542,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 1 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 1 Score" [(ngModel)]="p4h1" name="p4h1" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 1 Score" [(ngModel)]="p4Values.h1" name="p4h1" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -550,7 +550,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 2 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 2 Score" [(ngModel)]="p4h2" name="p4h2" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 2 Score" [(ngModel)]="p4Values.h2" name="p4h2" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -558,7 +558,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 3 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 3 Score" [(ngModel)]="p4h3" name="p4h3" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 3 Score" [(ngModel)]="p4Values.h3" name="p4h3" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -566,7 +566,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 4 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 4 Score" [(ngModel)]="p4h4" name="p4h4" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 4 Score" [(ngModel)]="p4Values.h4" name="p4h4" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -574,7 +574,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 5 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 5 Score" [(ngModel)]="p4h5" name="p4h5" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 5 Score" [(ngModel)]="p4Values.h5" name="p4h5" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -582,7 +582,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 6 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 6 Score" [(ngModel)]="p4h6" name="p4h6" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 6 Score" [(ngModel)]="p4Values.h6" name="p4h6" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -590,7 +590,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 7 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 7 Score" [(ngModel)]="p4h7" name="p4h7" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 7 Score" [(ngModel)]="p4Values.h7" name="p4h7" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -598,7 +598,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 8 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 8 Score" [(ngModel)]="p4h8" name="p4h8" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 8 Score" [(ngModel)]="p4Values.h8" name="p4h8" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -606,16 +606,16 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 9 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 9 Score" [(ngModel)]="p4h9" name="p4h9" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 9 Score" [(ngModel)]="p4Values.h9" name="p4h9" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
-        <td>{{p4Out}}</td>
+        <td>{{p4Values.Out}}</td>
         <td>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 10 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 10 Score" [(ngModel)]="p4h10" name="p4h10" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 10 Score" [(ngModel)]="p4Values.h10" name="p4h10" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -623,7 +623,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 11 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 11 Score" [(ngModel)]="p4h11" name="p4h11" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 11 Score" [(ngModel)]="p4Values.h11" name="p4h11" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -631,7 +631,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 12 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 12 Score" [(ngModel)]="p4h12" name="p4h12" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 12 Score" [(ngModel)]="p4Values.h12" name="p4h12" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -639,7 +639,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 13 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 13 Score" [(ngModel)]="p4h13" name="p4h13" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 13 Score" [(ngModel)]="p4Values.h13" name="p4h13" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -647,7 +647,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 14 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 14 Score" [(ngModel)]="p4h14" name="p4h14" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 14 Score" [(ngModel)]="p4Values.h14" name="p4h14" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -655,7 +655,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 15 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 15 Score" [(ngModel)]="p4h15" name="p4h15" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 15 Score" [(ngModel)]="p4Values.h15" name="p4h15" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -663,7 +663,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 16 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 16 Score" [(ngModel)]="p4h16" name="p4h16" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 16 Score" [(ngModel)]="p4Values.h16" name="p4h16" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -671,7 +671,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 17 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 17 Score" [(ngModel)]="p4h17" name="p4h17" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 17 Score" [(ngModel)]="p4Values.h17" name="p4h17" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
@@ -679,18 +679,18 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Hole 18 Score</mat-label>
-                    <input style="text-align: center" type="number" matInput placeholder="Hole 18 Score" [(ngModel)]="p4h18" name="p4h18" (change)="getScores4()">
+                    <input style="text-align: center" type="number" matInput placeholder="Hole 18 Score" [(ngModel)]="p4Values.h18" name="p4h18" (change)="getScores4()">
                 </mat-form-field>
             </form>
         </td>
-        <td>{{p4In}}</td>
-        <td>{{p4Tot}}</td>
+        <td>{{p4Values.In}}</td>
+        <td>{{p4Values.Tot}}</td>
       </tr>
       <tr>
         <td>Handicap</td>
-        <td *ngFor="let number of hcp| slice:0:9">{{number}}</td>
+        <td *ngFor="let number of hcp | slice:0:9">{{number}}</td>
         <td></td>
-        <td *ngFor="let number of hcp| slice:9:18">{{number}}</td>
+        <td *ngFor="let number of hcp | slice:9:18">{{number}}</td>
         <td></td>
         <td></td>
       </tr>

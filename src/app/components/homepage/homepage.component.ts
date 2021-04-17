@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../../interfaces/course';
-import { Player } from '../../interfaces/player';
-import { Tee } from '../../interfaces/tee';
+import { Select } from '../../interfaces/select';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { faFlag } from '@fortawesome/free-solid-svg-icons';
@@ -24,20 +22,20 @@ export class HomepageComponent implements OnInit {
   selectedTee: string;
   selectedPlayerCount: string;
 
-  courses: Course[] = [
+  courses: Select[] = [
     {value: 'Thanksgiving Point'},
     {value: 'Fox Hollow'},
     {value: 'Spanish Oaks'}
   ];
 
-  tees: Tee[] = [
+  tees: Select[] = [
     {value: 'Mens'},
     {value: 'Womens'},
     {value: 'Pro'},
     {value: 'Champion'}
   ];
 
-  players: Player[] = [
+  players: Select[] = [
     {value: '1'},
     {value: '2'},
     {value: '3'},
