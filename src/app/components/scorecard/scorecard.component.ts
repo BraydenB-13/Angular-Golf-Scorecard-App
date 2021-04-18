@@ -87,30 +87,24 @@ export class ScorecardComponent implements OnInit {
 
   checkNames() {
     if (this.p1Values.name == this.p2Values.name && (this.p1Values.name || this.p2Values.name)) {
-      this.pop();
+      this.popUp('Cannot have duplicate names');
       this.p2Values.name = '';
     } else if (this.p1Values.name == this.p3Values.name && (this.p1Values.name || this.p3Values.name)) {
-      this.pop();
+      this.popUp('Cannot have duplicate names');
       this.p3Values.name = '';
     } else if (this.p1Values.name == this.p4Values.name && (this.p1Values.name || this.p4Values.name)) {
-      this.pop();
+      this.popUp('Cannot have duplicate names');
       this.p4Values.name = '';
     } else if (this.p2Values.name == this.p3Values.name && (this.p2Values.name || this.p3Values.name)) {
-      this.pop();
+      this.popUp('Cannot have duplicate names');
       this.p3Values.name = '';
     } else if (this.p2Values.name == this.p4Values.name && (this.p2Values.name || this.p4Values.name)) {
-      this.pop();
+      this.popUp('Cannot have duplicate names');
       this.p4Values.name = '';
     } else if (this.p3Values.name == this.p4Values.name && (this.p3Values.name || this.p4Values.name)) {
-      this.pop();
+      this.popUp('Cannot have duplicate names');
       this.p4Values.name = '';
     }
-  } 
-
-  pop() {
-    this._snackBar.open('Cannot have duplicate names', 'Close', {
-      duration: 3000
-    })
   }
 
   getScores1() {
@@ -197,9 +191,13 @@ export class ScorecardComponent implements OnInit {
       } else {
         this.info.message = `Better luck next time ${name}!`
       }
-      this._snackBar.open(`${this.info.message}`, 'Close', {
-        duration: 3000
-      })
+      this.popUp(this.info.message);
     }
+  }
+
+  popUp(message) {
+    this._snackBar.open(message, 'Close', {
+      duration: 3000
+    })
   }
 }
