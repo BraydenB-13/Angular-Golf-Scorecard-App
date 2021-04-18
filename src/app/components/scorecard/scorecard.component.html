@@ -63,7 +63,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player 1 Name</mat-label>
-                    <input style="text-align: center" matInput placeholder="Player 1 Name" [(ngModel)]="p1Values.name" name="p1name">
+                    <input style="text-align: center" matInput placeholder="Player 1 Name" [(ngModel)]="p1Values.name" name="p1name" (change)="checkNames()">
                 </mat-form-field>
             </form>
         </td>
@@ -220,7 +220,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player 2 Name</mat-label>
-                    <input style="text-align: center" matInput placeholder="Player 2 Name" [(ngModel)]="p2Values.name" name="p2name">
+                    <input style="text-align: center" matInput placeholder="Player 2 Name" [(ngModel)]="p2Values.name" name="p2name" (change)="checkNames()">
                 </mat-form-field>
             </form>
         </td>
@@ -377,7 +377,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player 3 Name</mat-label>
-                    <input style="text-align: center" matInput placeholder="Player 3 Name" [(ngModel)]="p3Values.name" name="p3name">
+                    <input style="text-align: center" matInput placeholder="Player 3 Name" [(ngModel)]="p3Values.name" name="p3name" (change)="checkNames()">
                 </mat-form-field>
             </form>
         </td>
@@ -534,7 +534,7 @@
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player 4 Name</mat-label>
-                    <input style="text-align: center" matInput placeholder="Player 4 Name" [(ngModel)]="p4Values.name" name="p4name">
+                    <input style="text-align: center" matInput placeholder="Player 4 Name" [(ngModel)]="p4Values.name" name="p4name" (change)="checkNames()">
                 </mat-form-field>
             </form>
         </td>

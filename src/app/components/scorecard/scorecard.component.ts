@@ -85,6 +85,34 @@ export class ScorecardComponent implements OnInit {
     this.info.players = players;
   }
 
+  checkNames() {
+    if (this.p1Values.name == this.p2Values.name && (this.p1Values.name || this.p2Values.name)) {
+      this.pop();
+      this.p2Values.name = '';
+    } else if (this.p1Values.name == this.p3Values.name && (this.p1Values.name || this.p3Values.name)) {
+      this.pop();
+      this.p3Values.name = '';
+    } else if (this.p1Values.name == this.p4Values.name && (this.p1Values.name || this.p4Values.name)) {
+      this.pop();
+      this.p4Values.name = '';
+    } else if (this.p2Values.name == this.p3Values.name && (this.p2Values.name || this.p3Values.name)) {
+      this.pop();
+      this.p3Values.name = '';
+    } else if (this.p2Values.name == this.p4Values.name && (this.p2Values.name || this.p4Values.name)) {
+      this.pop();
+      this.p4Values.name = '';
+    } else if (this.p3Values.name == this.p4Values.name && (this.p3Values.name || this.p4Values.name)) {
+      this.pop();
+      this.p4Values.name = '';
+    }
+  } 
+
+  pop() {
+    this._snackBar.open('Cannot have duplicate names', 'Close', {
+      duration: 3000
+    })
+  }
+
   getScores1() {
     var holes = [this.p1Values.h1, this.p1Values.h2, this.p1Values.h3, this.p1Values.h4, this.p1Values.h5, this.p1Values.h6, this.p1Values.h7, this.p1Values.h8, this.p1Values.h9, this.p1Values.h10, this.p1Values.h11, this.p1Values.h12, this.p1Values.h13, this.p1Values.h14, this.p1Values.h15, this.p1Values.h16, this.p1Values.h17, this.p1Values.h18]
     var id = 1;
